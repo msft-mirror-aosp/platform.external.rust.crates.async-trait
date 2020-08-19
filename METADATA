@@ -9,11 +9,11 @@ third_party {
     type: GIT
     value: "https://github.com/dtolnay/async-trait"
   }
-  version: "0.1.36"
+  version: "0.1.38"
   license_type: NOTICE
   last_upgrade_date {
     year: 2020
     month: 8
-    day: 11
+    day: 17
   }
 }
