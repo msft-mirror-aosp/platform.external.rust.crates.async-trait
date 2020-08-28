@@ -6,8 +6,8 @@ third_party {
     value: "https://crates.io/crates/async-trait"
   }
   url {
-    type: GIT
-    value: "https://github.com/dtolnay/async-trait"
+    type: ARCHIVE
+    value: "https://static.crates.io/crates/async-trait/async-trait-0.1.38.crate"
   }
   version: "0.1.38"
   license_type: NOTICE
