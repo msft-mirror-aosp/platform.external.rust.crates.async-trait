@@ -284,6 +284,13 @@ fn transform_block(
     };
 
     let mut outer_generics = generics.clone();
+    for p in &mut outer_generics.params {
+        match p {
+            GenericParam::Type(t) => t.default = None,
+            GenericParam::Const(c) => c.default = None,
+            GenericParam::Lifetime(_) => {}
+        }
+    }
     if !has_self {
         if let Some(mut where_clause) = outer_generics.where_clause {
             where_clause.predicates = where_clause
