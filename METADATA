@@ -1,5 +1,5 @@
 name: "async-trait"
-description: "Async trait methods."
+description: "Type erasure for async trait methods"
 third_party {
   url {
     type: HOMEPAGE
