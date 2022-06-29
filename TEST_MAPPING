@@ -2,6 +2,12 @@
 {
   "presubmit": [
     {
+      "name": "VtsAidlDiceDemoteTargetTest"
+    },
+    {
+      "name": "VtsAidlDiceTargetTest"
+    },
+    {
       "name": "ZipFuseTest"
     },
     {
@@ -23,10 +29,19 @@
       "name": "diced_vendor_test"
     },
     {
+      "name": "keystore2_client_tests"
+    },
+    {
       "name": "keystore2_km_compat_test"
     },
     {
+      "name": "keystore2_legacy_blobs_test"
+    },
+    {
       "name": "keystore2_test"
+    },
+    {
+      "name": "keystore2_test_utils_test"
     },
     {
       "name": "legacykeystore_test"
@@ -40,6 +55,12 @@
   ],
   "presubmit-rust": [
     {
+      "name": "VtsAidlDiceDemoteTargetTest"
+    },
+    {
+      "name": "VtsAidlDiceTargetTest"
+    },
+    {
       "name": "ZipFuseTest"
     },
     {
@@ -61,10 +82,19 @@
       "name": "diced_vendor_test"
     },
     {
+      "name": "keystore2_client_tests"
+    },
+    {
       "name": "keystore2_km_compat_test"
     },
     {
+      "name": "keystore2_legacy_blobs_test"
+    },
+    {
       "name": "keystore2_test"
+    },
+    {
+      "name": "keystore2_test_utils_test"
     },
     {
       "name": "legacykeystore_test"
