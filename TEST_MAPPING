@@ -14,6 +14,12 @@
       "name": "authfs_device_test_src_lib"
     },
     {
+      "name": "compos_verify.test"
+    },
+    {
+      "name": "composd_cmd.test"
+    },
+    {
       "name": "diced_open_dice_cbor_test"
     },
     {
@@ -27,6 +33,9 @@
     },
     {
       "name": "diced_vendor_test"
+    },
+    {
+      "name": "fd_server.test"
     },
     {
       "name": "keystore2_client_tests"
@@ -47,10 +56,34 @@
       "name": "legacykeystore_test"
     },
     {
+      "name": "libkmr_hal_test"
+    },
+    {
+      "name": "libpvmfw_avb.integration_test"
+    },
+    {
+      "name": "libuwb_adaptation_jni_tests"
+    },
+    {
+      "name": "libuwb_core_tests"
+    },
+    {
+      "name": "libuwb_uci_jni_rust_tests"
+    },
+    {
       "name": "microdroid_manager_test"
     },
     {
-      "name": "virtualizationservice_device_test"
+      "name": "rialto_test"
+    },
+    {
+      "name": "virtualizationmanager_device_test"
+    },
+    {
+      "name": "vm.test"
+    },
+    {
+      "name": "vmbase_example.integration_test"
     }
   ],
   "presubmit-rust": [
@@ -67,6 +100,12 @@
       "name": "authfs_device_test_src_lib"
     },
     {
+      "name": "compos_verify.test"
+    },
+    {
+      "name": "composd_cmd.test"
+    },
+    {
       "name": "diced_open_dice_cbor_test"
     },
     {
@@ -80,6 +119,9 @@
     },
     {
       "name": "diced_vendor_test"
+    },
+    {
+      "name": "fd_server.test"
     },
     {
       "name": "keystore2_client_tests"
@@ -100,10 +142,34 @@
       "name": "legacykeystore_test"
     },
     {
+      "name": "libkmr_hal_test"
+    },
+    {
+      "name": "libpvmfw_avb.integration_test"
+    },
+    {
+      "name": "libuwb_adaptation_jni_tests"
+    },
+    {
+      "name": "libuwb_core_tests"
+    },
+    {
+      "name": "libuwb_uci_jni_rust_tests"
+    },
+    {
       "name": "microdroid_manager_test"
     },
     {
-      "name": "virtualizationservice_device_test"
+      "name": "rialto_test"
+    },
+    {
+      "name": "virtualizationmanager_device_test"
+    },
+    {
+      "name": "vm.test"
+    },
+    {
+      "name": "vmbase_example.integration_test"
     }
   ]
 }
