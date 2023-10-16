@@ -1,6 +1,6 @@
 #![cfg_attr(
     async_trait_nightly_testing,
-    feature(min_specialization, type_alias_impl_trait)
+    feature(impl_trait_in_assoc_type, min_specialization)
 )]
 #![deny(rust_2021_compatibility)]
 #![allow(
@@ -9,6 +9,7 @@
     clippy::missing_panics_doc,
     clippy::missing_safety_doc,
     clippy::needless_return,
+    clippy::non_minimal_cfg,
     clippy::trivially_copy_pass_by_ref,
     clippy::unused_async
 )]
@@ -872,7 +873,7 @@ pub mod issue89 {
     }
 
     #[async_trait]
-    impl Trait for Send + Sync {
+    impl Trait for dyn Send + Sync {
         async fn f(&self) {}
     }
 
@@ -946,7 +947,7 @@ pub mod issue92 {
             mac!(let _ = <Self>::associated1(););
 
             // trait items
-            mac!(let _: <Self as Trait>::Associated2;);
+            mac!(let (): <Self as Trait>::Associated2;);
             mac!(Self::ASSOCIATED2;);
             mac!(<Self>::ASSOCIATED2;);
             mac!(<Self as Trait>::ASSOCIATED2;);
@@ -1354,7 +1355,7 @@ pub mod issue161 {
     impl Trait for MyStruct {
         async fn f(self: Arc<Self>) {
             futures::select! {
-                _ = async {
+                () = async {
                     println!("{}", self.0);
                 }.fuse() => {}
             }
