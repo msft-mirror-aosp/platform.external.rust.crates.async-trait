@@ -1,13 +1,15 @@
 #![cfg_attr(
     async_trait_nightly_testing,
-    feature(min_specialization, type_alias_impl_trait)
+    feature(impl_trait_in_assoc_type, min_specialization)
 )]
 #![deny(rust_2021_compatibility)]
 #![allow(
+    clippy::let_underscore_untyped,
     clippy::let_unit_value,
     clippy::missing_panics_doc,
     clippy::missing_safety_doc,
     clippy::needless_return,
+    clippy::non_minimal_cfg,
     clippy::trivially_copy_pass_by_ref,
     clippy::unused_async
 )]
@@ -740,7 +742,6 @@ pub mod issue57 {
 
 // https://github.com/dtolnay/async-trait/issues/68
 pub mod issue68 {
-    #[rustversion::since(1.40)] // procedural macros cannot expand to macro definitions in 1.39.
     #[async_trait::async_trait]
     pub trait Example {
         async fn method(&self) {
@@ -872,7 +873,7 @@ pub mod issue89 {
     }
 
     #[async_trait]
-    impl Trait for Send + Sync {
+    impl Trait for dyn Send + Sync {
         async fn f(&self) {}
     }
 
@@ -946,7 +947,7 @@ pub mod issue92 {
             mac!(let _ = <Self>::associated1(););
 
             // trait items
-            mac!(let _: <Self as Trait>::Associated2;);
+            mac!(let (): <Self as Trait>::Associated2;);
             mac!(Self::ASSOCIATED2;);
             mac!(<Self>::ASSOCIATED2;);
             mac!(<Self as Trait>::ASSOCIATED2;);
@@ -1354,7 +1355,7 @@ pub mod issue161 {
     impl Trait for MyStruct {
         async fn f(self: Arc<Self>) {
             futures::select! {
-                _ = async {
+                () = async {
                     println!("{}", self.0);
                 }.fuse() => {}
             }
@@ -1582,5 +1583,24 @@ pub mod issue236 {
         async fn f() -> Ready<()> {
             future::ready(())
         }
+    }
+}
+
+// https://github.com/dtolnay/async-trait/issues/238
+pub mod issue238 {
+    #![deny(single_use_lifetimes)]
+
+    use async_trait::async_trait;
+
+    #[async_trait]
+    pub trait Trait {
+        async fn f();
+    }
+
+    pub struct Struct;
+
+    #[async_trait]
+    impl Trait for &Struct {
+        async fn f() {}
     }
 }
